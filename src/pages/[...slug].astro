@@ -1,0 +1,28 @@
+---
+import { getEmDashEntry } from "emdash";
+import Base from "../layouts/Base.astro";
+import MarketingBlocks from "../components/MarketingBlocks.astro";
+
+const { slug } = Astro.params;
+
+if (!slug || slug === "home") {
+	return Astro.redirect("/", 301);
+}
+
+const { entry: page, cacheHint } = await getEmDashEntry("pages", slug);
+
+try {
+	Astro.cache.set(cacheHint);
+} catch {}
+
+if (!page) {
+	return Astro.rewrite("/404");
+}
+
+const pageTitle = page.data.title;
+const pageContent = page.data.content;
+---
+
+<Base title={pageTitle}>
+	{pageContent && <MarketingBlocks value={pageContent} />}
+</Base>
