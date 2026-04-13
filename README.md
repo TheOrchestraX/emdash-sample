@@ -1,4 +1,8 @@
-# EmDash Marketing Template (Cloudflare)
+# EmDash Marketing Sample (Cloudflare)
+
+> Live: https://emdash-sample.utkarsh-5ac.workers.dev
+> Auto-deployed from `main` via Cloudflare Workers Builds.
+
 
 A conversion-focused landing page template built with [EmDash](https://github.com/emdash-cms/emdash) and deployed on Cloudflare Workers with D1 and R2. Modular content blocks let you assemble pages from reusable sections without touching code.
 
